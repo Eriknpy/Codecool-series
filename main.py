@@ -43,14 +43,13 @@ def get_shows():
 
 
 @app.route('/stars_for_the_stars')
-def disp_stars_for_the_stars():
-    # shows = queries.stars_for_the_stars(genre)
-    return render_template('task1.html')
+def display_stars_for_the_stars():
+    return render_template('stars_for_the_stars.html')
 
 
-@app.route('/api/genre', methods=["POST"])
-def get_genre():
-    genre = request.form.get('genre')
+@app.route('/api/get_genre')
+def handle_genre():
+    genre = request.args.get('genre')
     return jsonify(queries.stars_for_the_stars(genre))
 
 

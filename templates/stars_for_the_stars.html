@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}Stars for the stars {% endblock %}
+{% block stars_for_the_stars %}<script src="{{ url_for('static', filename='js/stars-for-the-stars.js') }}" defer></script>{% endblock %}
+{% block content %}
+    <div>
+        <div>
+            <input id="genre" name="genre" type="text">
+            <button id="send" name="send" type="button" style="color: black">SEND</button>
+        </div>
+        <ul id="unorderedList">
+        </ul>
+    </div>
+{% endblock %}

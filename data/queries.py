@@ -36,13 +36,14 @@ def get_top15_rated_shows():
 # PA practice
 def stars_for_the_stars(genre):
     query = """
-    SELECT shows.title, shows.year, ROUND(shows.rating, 2) AS rating
-    FROM shows
-    INNER JOIN show_genres sg ON shows.id = sg.show_id
-    INNER JOIN genres g ON sg.genre_id = g.id
-    WHERE  g.name = '{genre}'
-    ORDER BY rating DESC
-    LIMIT 10
+    SELECT s.title as title,
+       date_part('year',s.year) as starting_date,
+       ROUND(s.rating,1) as rating
+        FROM shows s
+        INNER JOIN show_genres sg on s.id = sg.show_id
+        INNER JOIN genres g on sg.genre_id = g.id
+        WHERE g.name = '{genre}'
+        ORDER BY rating DESC
     """.format(genre=genre)
     return data_manager.execute_select(query)
 

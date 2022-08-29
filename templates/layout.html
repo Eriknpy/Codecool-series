@@ -25,14 +25,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style/form.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/grid.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/utils.css') }}">
+    <script src="https://kit.fontawesome.com/b48695bf87.js" crossorigin="anonymous"></script>
 
 
 
     <!-- page specific styling -->
     {% block index_page %}{% endblock %}
     {% block most_rated_shows %}{% endblock %}
+    {% block stars_for_the_stars %}{% endblock %}
+    {% block young_actors_in_old_shows %}{% endblock %}
 </head>
 <body>
+
 <div id="body-wrapper">
     <header class="clearfix">
                 <img id="header-logo" src="{{ url_for('static', filename='assets/codecool-logo.png') }}"
