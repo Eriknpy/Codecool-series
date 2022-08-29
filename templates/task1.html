@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task1</title>
+    <script src="https://kit.fontawesome.com/b48695bf87.js" crossorigin="anonymous"></script>
+    <script type="module"
+            src="{{ url_for('static', filename='js/young-actors-in-old-shows.js') }}"
+            defer></script>
+</head>
+<body>
+<div id="mydiv">
+    YOLO !!
+</div>
+<form id="genre" action="{{ url_for('get_genre') }}">
+    <div>
+        <label for="genre">Genre
+            <input name="genre" id="input-genre" type="text"></label>
+        <button id="spec-button">SUBMIT</button>
+    </div>
+</form>
+</body>
+</html>

@@ -23,7 +23,7 @@ TRAKT_MAX_SHOW_COUNT = 52500
 
 
 def should_use_trakt():
-    print("The program can try connecting to the TRAKT API to download data or use local data to insert instead (faster)?")
+    print("The program can try connecting to the TRAKT API to download or use local to insert instead (faster)?")
     answer = input("Do you want to connect to the TRAKT API? (y/n) ")
     return answer.lower() == "y"
 
@@ -39,19 +39,19 @@ def main():
         insert_shows(limit=20, max_show_count=100)
         print('Data downloaded and inserted successfully')
     else:
-        execute_sql_file("data/dump_1000_shows/codecool_public_genres.sql")
+        execute_sql_file("dump_1000_shows/codecool_public_genres.sql")
         print("Genres inserted")
-        execute_sql_file("data/dump_1000_shows/codecool_public_shows.sql")
+        execute_sql_file("dump_1000_shows/codecool_public_shows.sql")
         print("Shows inserted")
-        execute_sql_file("data/dump_1000_shows/codecool_public_show_genres.sql")
+        execute_sql_file("dump_1000_shows/codecool_public_show_genres.sql")
         print("Show genres inserted")
-        execute_sql_file("data/dump_1000_shows/codecool_public_seasons.sql")
+        execute_sql_file("dump_1000_shows/codecool_public_seasons.sql")
         print("Seasons inserted")
-        execute_sql_file("data/dump_1000_shows/codecool_public_episodes.sql")
+        execute_sql_file("dump_1000_shows/codecool_public_episodes.sql")
         print("Episodes inserted")
-        execute_sql_file("data/dump_1000_shows/codecool_public_actors.sql")
+        execute_sql_file("dump_1000_shows/codecool_public_actors.sql")
         print("Actors inserted")
-        execute_sql_file("data/dump_1000_shows/codecool_public_show_characters.sql")
+        execute_sql_file("dump_1000_shows/codecool_public_show_characters.sql")
         print("Show characters inserted")
 
     print("Your database should work now!")

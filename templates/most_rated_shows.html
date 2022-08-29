@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Shows{% endblock %}
+{% block most_rated_shows %} <script src="{{ url_for('static', filename='js/most-rated-shows.js') }}"></script>{% endblock %}
+
+{% block content %}
+    <h1 class="title text-center">Shows</h1>
+    <section>
+        <div class="card">
+            <table>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Runtime(min)</th>
+                    <th>Rating</th>
+                    <th>Genres</th>
+                    <th>Trailer</th>
+                    <th>Homepage</th>
+                </tr>
+                </thead>
+                <tbody id="tBody"></tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}
