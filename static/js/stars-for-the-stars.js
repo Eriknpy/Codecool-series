@@ -4,7 +4,6 @@ function main() {
     starEffect()
 }
 
-
 function getGenre() {
     const genreInput = document.querySelector('#genre').value
     return fetchShowsByGenre(genreInput)

@@ -59,3 +59,16 @@ def get_actors_by_year(year):
     ORDER BY age DESC
     """).format(year=sql.Literal(year))
     return data_manager.execute_select(query)
+
+
+def get_shows_rating_by_year():
+    query = """
+    SELECT EXTRACT(YEAR FROM s.year) as year,
+    ROUND(AVG(s.rating),1) as rating,
+    COUNT(s.rating) as count_shows
+    FROM shows s
+    WHERE date_part('year',s.year) BETWEEN 1970 AND 2010
+    GROUP BY s.year
+    """
+    return data_manager.execute_select(query)
+
