@@ -30,6 +30,11 @@ def handle_most_rated_shows():
     return jsonify(queries.get_top15_rated_shows())
 
 
+# PA LIVE
+
+
+
+
 # PA Practices
 
 
@@ -49,7 +54,7 @@ def handle_genre():
 @app.route('/what_a_year')
 def display_what_a_year():
     shows = queries.get_shows_rating_by_year()
-    return render_template('what_a_year.html',show=shows)
+    return render_template('what_a_year.html', show=shows)
 
 
 @app.route('/api/shows_yearly_rating')
@@ -57,6 +62,7 @@ def handle_shows_yearly_rating():
     return jsonify(queries.get_shows_rating_by_year())
 
 
+# Konzi
 @app.route('/young_actors_in_old_shows')
 def young_actors_in_old_shows():
     return render_template('young_actors_in_old_shows.html')
@@ -66,6 +72,30 @@ def young_actors_in_old_shows():
 def get_actor_year():
     year = request.args.get('year')
     return jsonify(queries.get_actors_by_year(year))
+
+
+# Konzi2
+@app.route('/show_homepage')
+def display_show_homepage():
+    return render_template('show_homepage.html')
+
+
+@app.route('/api/show_details')
+def handle_shows_homepage():
+    return jsonify(queries.get_all_shows_more_than_10ep())
+
+
+# Konzi3
+@app.route('/shows_by_initial')
+def display_shows_by_initial():
+    abc_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    return render_template('shows_by_initial.html', abc_letters=abc_letters)
+
+
+@app.route('/api/shows_details_by_initial')
+def handle_show_details_by_initial():
+    letter = request.args.get('letter')
+    return jsonify(queries.get_shows_by_initial(letter))
 
 
 # Robertino

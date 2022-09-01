@@ -16,12 +16,12 @@ apiGet('/api/top15-shows').then((objectData)=>{
                         <td style="text-align: center">${row.runtime}</td>
                         <td>${row.rating}</td>
                         <td>${row.genres}</td>
-                        <td>${lofasz(row.trailer)}</td>
-                        <td>${lofasz(row.homepage)}</td>
+                        <td>${parseURL(row.trailer)}</td>
+                        <td>${parseURL(row.homepage)}</td>
                      </tr>`
         document.querySelector('#tBody').innerHTML = tableData
     })
-    function lofasz(data){
+    function parseURL(data){
         if(data == "There is no URL"){
             return 'There is no URL'
         }

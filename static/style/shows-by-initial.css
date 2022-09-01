@@ -1,0 +1,15 @@
+#ABC{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+#letter{
+    font-weight: bold;
+    background-color: #f1f1f1;
+    border-color: black;
+    border-radius: 0.7rem;
+    border-style: solid;
+    margin: 0.1rem;
+    padding: 10px;
+    padding-bottom: 8px;
+}

@@ -2,7 +2,7 @@ function main(){
     const card = document.querySelectorAll('#cardTemplate')
     let display_rating = []
     card.forEach((yolo)=>{
-
+        console.log(card)
         yolo.addEventListener('click',(e)=>{
             e.currentTarget.style.backgroundColor = 'red'
             display_rating.push(e.currentTarget.children[1].innerHTML)

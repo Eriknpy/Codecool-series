@@ -72,3 +72,39 @@ def get_shows_rating_by_year():
     """
     return data_manager.execute_select(query)
 
+
+def get_all_shows_more_than_10ep():
+    query = """
+    SELECT sh.title AS title,
+       STRING_AGG(DISTINCT g.name, '/' ) AS genres,
+       COUNT(DISTINCT s.id) AS number_of_season,
+       EXTRACT(YEAR FROM sh.year) AS year,
+       COALESCE(sh.homepage,'No URL') AS website
+    FROM shows sh
+        INNER JOIN seasons s ON sh.id = s.show_id
+        INNER JOIN episodes e ON s.id = e.season_id
+        INNER JOIN show_genres sg ON sh.id = sg.show_id
+        INNER JOIN genres g ON sg.genre_id = g.id
+    GROUP BY sh.title, sh.homepage, sh.year
+    HAVING COUNT(DISTINCT e.id) > 10
+    """
+    return data_manager.execute_select(query)
+
+
+def get_shows_by_initial(letter):
+    query = sql.SQL("""
+       SELECT sh.title AS title,
+              sh.year AS year,
+              COUNT(DISTINCT e.id) as episode_count,
+              COUNT(DISTINCT a.id) as actor_count
+       FROM shows sh
+             INNER JOIN seasons s ON sh.id = s.show_id
+             INNER JOIN episodes e ON s.id = e.season_id
+        
+             INNER JOIN show_characters sc on sh.id = sc.show_id
+             INNER JOIN actors a on sc.actor_id = a.id
+
+       GROUP BY sh.title,sh.year
+       HAVING(COUNT(DISTINCT e.id)) > 20 and sh.title LIKE '{letter}%'
+       """).format(letter=sql.SQL(letter))
+    return data_manager.execute_select(query)
