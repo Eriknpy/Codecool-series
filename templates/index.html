@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block title %}CsED{% endblock %}
+{% block index_page %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/detailed-view.css') }}">
+
+    {#    <script type="module"#}
+    {#            src="{{ url_for('static', filename='js/robi.js') }}"#}
+    {#            defer></script>#}
+{% endblock %}
+{% block content %}
+    <div id="body-wrapper">
+        <header class="clearfix">
+            <img id="header-logo" src="{{ url_for('static', filename='assets/codecool-logo.png') }}"
+                 alt="Codecool Logo">
+            <span id="header-title" class="title">Codecool Series DB</span>
+            <div id="header-auth">
+                <button type="button">Most Rated Shows</button>
+                <button type="button" id="bt-register">Register</button>
+                <button type="button" id="bt-login">Login</button>
+            </div>
+        </header>
+        <section>
+            {#    <label for="title">#}
+            {#        <input id="title" name="title" type="text">#}
+            {#    </label>#}
+            {#    <label for="year">#}
+            {#        <input id="year" name="year" type="date">#}
+            {#    </label>#}
+            {#    <label for="rating">#}
+            {#        <input id="rating" name="rating" type="number">#}
+            {#    </label>#}
+            {#        <button id="submit" type="submit">SUBMIT</button>#}
+
+            <h1 class="title text-center">Welcome page</h1>
+            <div class="card">
+                <h2>Welcome TV show lovers!</h2>
+                <p>This great site is happy to bring you your favourite TV show's <i>details</i>.</p>
+                <p></p>
+                <p>Okay, actually this is a designed dumb page without any logic.</p>
+                <p>You can find a navigational element, the so called "breadcrumb" above the page's title. Use it for
+                    in-depth
+                    navigation.
+                </p>
+            </div>
+            <div class="card">
+                <ul>
+                    {% for show in shows %}
+                        <li>
+                            <a href="{{ '/tv-show/' + (show['id'] | string) }}">{{ show['title'] }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <footer>
+            Copyright, bla-bla
+        </footer>
+    </div>
+    <div class="background">
+        <div class="dark-blue-layer"></div>
+        <div class="light-blue-layer"></div>
+    </div>
+{% endblock %}

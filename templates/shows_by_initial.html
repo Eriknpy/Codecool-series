@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block shows_by_initial %}
+    <script src="{{ url_for('static', filename='js/shows-by-initial.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/shows-by-initial.css') }}">
+{% endblock %}
+{% block content %}
+    <div id="ABC">
+        {% for letter in abc_letters %}
+            <div id="letter">{{ letter }}</div>
+        {% endfor %}
+    </div>
+    <div id="tableDiv">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Episode Count</th>
+                    <th>Actor Count</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+{% endblock %}

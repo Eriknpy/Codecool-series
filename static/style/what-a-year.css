@@ -1,0 +1,32 @@
+#cardTemplate{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+
+    background-color: #f1f1f1;
+    border-color: black;
+    border-radius: 1rem;
+    border-style: solid;
+}
+
+.details{
+    text-align: center;
+}
+
+
+#showCount{
+    font-size: 60%;
+}
+#rating{
+    font-size: 2rem;
+    font-weight: bold;
+}
+#year{
+    font-size: 1.2rem;
+}
+#cardsContainer{
+    display: flex;
+    flex-direction: row;
+}

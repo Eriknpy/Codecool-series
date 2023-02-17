@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block title %}What a year{% endblock %}
+{% block what_a_year %}<script src="{{ url_for('static', filename='js/what-a-year.js') }}" defer></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='style/what-a-year.css') }}">{% endblock %}
+{% block content %}
+    <div style="text-align: center;font-weight: bold;font-size: 2rem"><p id="result"></p></div>
+    <div id="cardsContainer">
+            {% for i in show %}
+                <div id="cardTemplate" data-id="{{loop.index}}">
+                    <div class="details" id="year" data-year-id="{{loop.index}}">{{ i.year }}</div>
+                    <div class="details" id="rating" data-rating-id="{{loop.index}}">{{ i.rating }}</div>
+                    <div class="details" id="showCount" data-showCount-id="{{loop.index}}">{{ i.count_shows }} shows</div>
+                </div>
+            {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'layout.html' %}
+{% block young_actors_in_old_shows %}<script src="{{ url_for('static', filename='js/young-actors-in-old-shows.js') }}" defer></script>{% endblock %}
+{% block content %}
+    <label for="year">
+    <input id="year" name="year" type="number">
+</label>
+<button id="send" type="button" style="color: black">SEND</button>
+{% endblock %}
